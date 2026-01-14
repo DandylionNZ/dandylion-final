@@ -1,4 +1,3 @@
-export { default } from "./PostCard";
 import Link from "next/link";
 import { PostMeta } from "@/lib/posts";
 
