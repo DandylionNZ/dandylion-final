@@ -27,7 +27,8 @@ export default function Home() {
           </p>
 
           <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-            Calm, clear strategy for businesses ready to grow.
+            Dandylion Strategy helps organisations make clear, confident decisions when complexity, change, or scrutiny make direction hard to see.
+
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#3B3B3B]/80">
