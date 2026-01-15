@@ -27,13 +27,11 @@ export default function Home() {
           </p>
 
           <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-            Dandylion Strategy helps organisations make clear, confident decisions when complexity, change, or scrutiny make direction hard to see.
-
+Strategy, without the noise.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#3B3B3B]/80">
-            Strategy-first guidance for businesses that want clarity, momentum,
-            and measurable growth — without the chaos.
+         Strategy and guidance for organisations navigating growth, change, and complexity.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -90,13 +88,16 @@ export default function Home() {
               Thoughtful work, done alongside you
             </h2>
             <p className="mt-4 text-[#3B3B3B]/80 leading-relaxed">
-              Strategy doesn’t live in documents alone. It takes shape through
-              thoughtful conversation, careful analysis, and practical decisions
-              — always grounded in your real-world context.
+          Dandylion Strategy helps organisations make clear, confident decisions when complexity, change, or scrutiny make direction hard to see.
             </p>
             <p className="mt-4 text-[#3B3B3B]/80 leading-relaxed">
-              The goal is simple: clarity you can act on, and confidence in the
-              direction you’re taking.
+             We support leaders through moments that matter — shaping strategy, clarifying direction, and aligning teams so decisions can actually be acted on.
+ </p>
+            <p className="mt-4 text-[#3B3B3B]/80 leading-relaxed">
+Our work sits at the intersection of strategy, communications, and delivery. We help you define what matters most, make sense of competing priorities, and move forward with confidence — whether you’re navigating change, growth, or increased scrutiny.
+ </p>
+            <p className="mt-4 text-[#3B3B3B]/80 leading-relaxed">
+We work in a grounded, considered way. No noise, no unnecessary frameworks — just clear thinking, thoughtful advice, and practical support that helps strategy hold up in the real world.
             </p>
           </div>
         </div>
