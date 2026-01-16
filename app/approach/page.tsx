@@ -1,81 +1,59 @@
-import Image from "next/image";
-import Link from "next/link";
-
-const steps = [
-  {
-    title: "1. Diagnose",
-    desc: "We get clear on the real problem, the constraints, and what success looks like.",
-  },
-  {
-    title: "2. Decide",
-    desc: "We set priorities, define the sharpest moves, and cut what doesn’t matter.",
-  },
-  {
-    title: "3. Deliver",
-    desc: "You leave with a plan: actions, owners, milestones, and measures.",
-  },
-];
-
-export default function ApproachPage() {
+export default function Approach() {
   return (
-    <div className="max-w-3xl">
-      <p className="mb-4 inline-flex items-center rounded-full border border-[#B8C4A0]/40 bg-white/60 px-3 py-1 text-sm">
-        Approach
-      </p>
+    <main className="bg-[#FAF7F2] text-[#3B3B3B]">
+      <section className="mx-auto max-w-6xl px-6 py-20 space-y-10">
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
+          Approach
+        </h1>
 
-      <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-        Clarity → direction → momentum.
-      </h1>
+        <h2 className="text-2xl font-semibold tracking-tight">
+          A considered approach to complex decisions
+        </h2>
 
-      <p className="mt-5 text-lg leading-relaxed text-[#3B3B3B]/80">
-        A simple, structured way to get from “we’re busy” to “we’re building the
-        right things.”
-      </p>
+        <p>
+          Good strategy isn’t about having the loudest ideas or the most
+          frameworks. It’s about asking the right questions, understanding
+          context, and exercising sound judgement.
+        </p>
 
-      <Image
-        src="/images/approach.jpg"
-        alt="A clear, structured approach"
-        width={1200}
-        height={700}
-        className="my-10 h-[320px] w-full rounded-2xl object-cover"
-        priority
-      />
+        <p>
+          At Dandylion Strategy, our approach is grounded, thoughtful, and
+          deliberately calm — particularly when situations feel uncertain or
+          high-stakes.
+        </p>
 
-      <div className="grid gap-4">
-        {steps.map((s) => (
-          <div
-            key={s.title}
-            className="rounded-2xl border border-[#B8C4A0]/40 bg-white/60 p-6"
-          >
-            <div className="text-lg font-semibold">{s.title}</div>
-            <div className="mt-2 text-sm text-[#3B3B3B]/80">{s.desc}</div>
-          </div>
-        ))}
-      </div>
+        <h3 className="text-xl font-semibold">We start with clarity</h3>
+        <p>
+          Before jumping to solutions, we take time to understand what’s really
+          happening, what decisions need to be made, what constraints exist, and
+          what success actually looks like.
+        </p>
 
-      <div className="mt-10 rounded-2xl border border-[#B8C4A0]/40 bg-white/60 p-6">
-        <div className="text-sm font-semibold">Best fit for</div>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[#3B3B3B]/80">
-          <li>Founders who need a clean plan and calm execution</li>
-          <li>Teams with too many ideas and not enough prioritisation</li>
-          <li>Businesses ready to tighten positioning and focus growth</li>
-        </ul>
-      </div>
+        <h3 className="text-xl font-semibold">We work alongside leaders</h3>
+        <p>
+          Our work is collaborative and closely connected to leadership teams,
+          bringing structure, perspective, and independent thinking without
+          overriding internal expertise.
+        </p>
 
-      <div className="mt-10 flex flex-wrap gap-3">
-        <Link
-          href="/services"
-          className="rounded-xl bg-[#F6E6A7] px-5 py-3 font-medium text-[#3B3B3B] shadow-sm hover:opacity-90"
-        >
-          Choose a service
-        </Link>
-        <Link
-          href="/contact"
-          className="rounded-xl border border-[#B8C4A0]/50 bg-white/60 px-5 py-3 font-medium text-[#3B3B3B] hover:bg-white"
-        >
-          Book a consult
-        </Link>
-      </div>
-    </div>
+        <h3 className="text-xl font-semibold">We value judgement over templates</h3>
+        <p>
+          Rather than applying pre-set models, we tailor our thinking to your
+          context and focus on what will hold up in practice.
+        </p>
+
+        <h3 className="text-xl font-semibold">We focus on decisions, not documents</h3>
+        <p>
+          The goal of our work isn’t a report — it’s confident decision-making
+          that can be explained, defended, and delivered.
+        </p>
+
+        <h3 className="text-xl font-semibold">A trusted partner, when it matters</h3>
+        <p>
+          We’re often engaged during moments of change, scrutiny, or uncertainty
+          — helping bring order to complexity and confidence to direction.
+        </p>
+      </section>
+    </main>
   );
 }
