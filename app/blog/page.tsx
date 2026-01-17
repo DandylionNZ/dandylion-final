@@ -1,78 +1,53 @@
-import Link from "next/link";
-import { getAllPosts } from "@/lib/posts";
+import Container from "@/components/Container";
 
-export const metadata = {
-  title: "Blog | Dandylion Strategy",
-  description:
-    "Practical strategy thinking for leaders navigating growth, change, and complexity.",
-};
-
-export default function BlogIndex() {
-  const posts = getAllPosts();
-
+export default function BlogPage() {
   return (
     <main className="bg-[#FAF7F2] text-[#2F2F2C]">
-      <section className="border-b border-[#8F9B85]/25">
-        <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-          <p className="mb-4 inline-flex items-center rounded-full border border-[#8F9B85]/35 bg-white/60 px-3 py-1 text-sm text-[#2F2F2C]/80">
-            Blog
-          </p>
 
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
-            Notes on strategy that holds up.
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#2F2F2C]/80">
-            Clear thinking for leaders making decisions in complex environments —
-            written in plain language, grounded in real work.
-          </p>
+      {/* BLOG HERO */}
+      <section className="relative border-b border-[#8F9B85]/25">
+        <div className="absolute inset-0">
+          <img
+            src="/images/blog-hero.jpg"
+            alt="Strategic insights for business leaders"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#FAF7F2]/75" />
         </div>
+
+        <Container>
+          <div className="relative py-20">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
+              Strategic thinking for organisations navigating change.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-lg opacity-80">
+              Perspectives on leadership, decision-making, communication strategy,
+              and the realities of growing a business in Aotearoa.
+            </p>
+          </div>
+        </Container>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        {posts.length === 0 ? (
-          <div className="rounded-2xl border border-[#8F9B85]/25 bg-white/60 p-8 text-[#2F2F2C]/80">
-            No posts yet.
-          </div>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2">
-            {posts.map((post) => (
-              <article
-                key={post.slug}
-                className="rounded-2xl border border-[#8F9B85]/25 bg-white/60 p-7 shadow-sm"
-              >
-                <div className="text-xs uppercase tracking-wide text-[#2F2F2C]/60">
-                  {post.date}
-                </div>
+      {/* BLOG POSTS GRID */}
+      <section className="py-20">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-3">
 
-                <h2 className="mt-2 text-xl font-semibold tracking-tight">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="hover:underline"
-                  >
-                    {post.title}
-                  </Link>
-                </h2>
-
-                {post.excerpt ? (
-                  <p className="mt-3 text-sm leading-relaxed text-[#2F2F2C]/75">
-                    {post.excerpt}
-                  </p>
-                ) : null}
-
-                <div className="mt-5">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex rounded-xl border border-[#8F9B85]/35 bg-white/40 px-4 py-2 text-sm font-medium text-[#2F2F2C] hover:bg-white"
-                  >
-                    Read →
-                  </Link>
-                </div>
-              </article>
+            {/* Example cards — your CMS will replace these */}
+            {[1,2,3].map((i) => (
+              <div key={i} className="rounded-2xl border border-[#8F9B85]/25 bg-white/60 p-6 shadow-sm">
+                <h3 className="text-xl font-semibold">Sample Article {i}</h3>
+                <p className="mt-2 text-sm opacity-70">
+                  This is where your article description will show.
+                </p>
+              </div>
             ))}
+
           </div>
-        )}
+        </Container>
       </section>
+
     </main>
   );
 }
