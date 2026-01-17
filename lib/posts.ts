@@ -4,55 +4,57 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), "content/posts");
+const postsDirectory = path.join(process.cwd(), "content", "posts");
 
-export type PostMeta = {
+export type Post = {
   slug: string;
   title: string;
-  description: string;
   date: string;
-  category?: string;
+  excerpt?: string;
+  contentHtml: string;
 };
 
-export function getAllPosts(): PostMeta[] {
+export function getAllPosts(): Omit<Post, "contentHtml">[] {
   if (!fs.existsSync(postsDirectory)) return [];
 
-  const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith(".md"));
+  const fileNames = fs.readdirSync(postsDirectory);
 
-  const posts = files.map((file) => {
-    const slug = file.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, file);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data } = matter(fileContents);
+  const posts = fileNames
+    .filter((name) => name.endsWith(".md"))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
 
-    return {
-      slug,
-      title: String(data.title ?? slug),
-      description: String(data.description ?? ""),
-      date: String(data.date ?? ""),
-      category: data.category ? String(data.category) : undefined,
-    };
-  });
+      const { data } = matter(fileContents);
 
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+      return {
+        slug,
+        title: String(data.title ?? slug),
+        date: String(data.date ?? ""),
+        excerpt: data.excerpt ? String(data.excerpt) : "",
+      };
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+
+  return posts;
 }
 
-export async function getPostBySlug(slug: string): Promise<{ meta: PostMeta; contentHtml: string }> {
+export function getPostBySlug(slug: string): Post | null {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  if (!fs.existsSync(fullPath)) return null;
 
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const processed = await remark().use(html).process(content);
+  const processed = remark().use(html).processSync(content);
   const contentHtml = processed.toString();
 
-  const meta: PostMeta = {
+  return {
     slug,
     title: String(data.title ?? slug),
-    description: String(data.description ?? ""),
     date: String(data.date ?? ""),
-    category: data.category ? String(data.category) : undefined,
+    excerpt: data.excerpt ? String(data.excerpt) : "",
+    contentHtml,
   };
-
-  return { meta, contentHtml };
 }
