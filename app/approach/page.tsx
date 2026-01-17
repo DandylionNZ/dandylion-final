@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Approach | Dandylion Strategy",
-  description:
-    "A calm, considered approach to strategy, communications strategy, and decision support — grounded in judgement, clarity, and real-world delivery.",
-};
-
 export default function ApproachPage() {
   return (
     <main className="bg-[#FAF7F2] text-[#2F2F2C]">
@@ -15,7 +9,7 @@ export default function ApproachPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/approach.jpg"
-            alt="A calm, considered approach to complex decisions"
+            alt="A calm, considered approach to strategy"
             fill
             priority
             className="object-cover"
@@ -35,8 +29,7 @@ export default function ApproachPage() {
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#2F2F2C]/80">
             Good strategy isn’t loud. It’s clear. We bring structure, judgement,
-            and grounded advice — especially when stakes are high and direction
-            is hard to see.
+            and grounded advice — especially when the stakes are high.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -66,7 +59,7 @@ export default function ApproachPage() {
             ],
             [
               "Alongside leaders",
-              "Collaborative, close to the work, and respectful of internal expertise — with independent thinking when it’s needed.",
+              "Collaborative, close to the work, respectful of internal expertise — with independent thinking when needed.",
             ],
             [
               "Judgement over templates",
@@ -96,9 +89,9 @@ export default function ApproachPage() {
           <div className="relative overflow-hidden rounded-2xl border border-[#8F9B85]/30 bg-white/40 shadow-sm">
             <Image
               src="/images/people.jpg"
-              alt="Strategic work in progress"
-              width={1200}
-              height={800}
+              alt="Strategic collaboration"
+              width={1400}
+              height={900}
               className="h-[380px] w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-[#8F9B85]/10" />
@@ -122,8 +115,8 @@ export default function ApproachPage() {
             </p>
 
             <p className="mt-4 leading-relaxed text-[#2F2F2C]/80">
-              You’ll get clear thinking, thoughtful advice, and practical support
-              — without the noise.
+              You’ll get clear thinking, thoughtful advice, and practical
+              support — without the noise.
             </p>
           </div>
         </div>
@@ -137,8 +130,8 @@ export default function ApproachPage() {
               Want a clear next step?
             </h3>
             <p className="mt-2 text-[#2F2F2C]/80">
-              A short call is often enough to pinpoint the decision, the options,
-              and the smartest move from here.
+              A short call is often enough to pinpoint the decision and the
+              sharpest move from here.
             </p>
           </div>
           <Link

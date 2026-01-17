@@ -1,25 +1,33 @@
 import Link from "next/link";
-import Container from "@/components/Container";
+import Container from "./Container";
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-[color:var(--cream)]/80 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[#8F9B85]/20 bg-[#FAF7F2]/85 backdrop-blur">
       <Container>
-        <div className="flex items-center justify-between py-4">
-          <Link href="/" className="font-medium tracking-tight">
-            Dandylion <span className="opacity-70">Strategy</span>
+        <div className="flex h-16 items-center justify-between">
+          <Link
+            href="/"
+            className="font-semibold tracking-tight text-[#2F2F2C]"
+          >
+            Dandylion Strategy
           </Link>
 
-          <nav className="flex items-center gap-6 text-sm">
-            <Link href="/services">Services</Link>
-            <Link href="/approach">Approach</Link>
-            <Link href="/about">About</Link>
-            <Link href="/blog">Insights</Link>
+          <nav className="flex items-center gap-5 text-sm text-[#2F2F2C]/80">
+            <Link className="hover:text-[#2F2F2C]" href="/services">
+              Services
+            </Link>
+            <Link className="hover:text-[#2F2F2C]" href="/approach">
+              Approach
+            </Link>
+            <Link className="hover:text-[#2F2F2C]" href="/about">
+              About
+            </Link>
             <Link
+              className="rounded-xl bg-[#D8D4CE] px-4 py-2 font-medium text-[#2F2F2C] hover:opacity-90"
               href="/contact"
-              className="rounded-full bg-[color:var(--butter)] px-4 py-2 font-medium"
             >
-              Book a Call
+              Contact
             </Link>
           </nav>
         </div>
