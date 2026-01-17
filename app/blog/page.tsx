@@ -1,53 +1,67 @@
-import Container from "@/components/Container";
+import Image from "next/image";
+import PostCard from "@/components/PostCard";
+import { getAllPosts } from "@/lib/posts";
+
+export const metadata = {
+  title: "Blog | Dandylion Strategy",
+  description: "Clear thinking on strategy, communications, and decision-making.",
+};
 
 export default function BlogPage() {
+  const posts = getAllPosts(); // should read content/posts/*.md
+
   return (
     <main className="bg-[#FAF7F2] text-[#2F2F2C]">
-
-      {/* BLOG HERO */}
-      <section className="relative border-b border-[#8F9B85]/25">
+      {/* Banner */}
+      <section className="relative overflow-hidden border-b border-[#8F9B85]/25">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/blog-hero.jpg"
-            alt="Strategic insights for business leaders"
-            className="h-full w-full object-cover"
+            alt="Dandylion Strategy blog"
+            fill
+            priority
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#FAF7F2]/75" />
+          <div className="absolute inset-0 bg-[#FAF7F2]/70" />
+          <div className="absolute inset-0 bg-[#8F9B85]/10" />
         </div>
 
-        <Container>
-          <div className="relative py-20">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              Strategic thinking for organisations navigating change.
-            </h1>
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-20">
+          <p className="mb-4 inline-flex items-center rounded-full border border-[#8F9B85]/35 bg-white/60 px-3 py-1 text-sm text-[#2F2F2C]/80">
+            Dandylion Strategy • Insights
+          </p>
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
+            Notes on strategy, comms, and confident decisions.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#2F2F2C]/80">
+            Practical thinking for leaders navigating growth, change, and complexity.
+          </p>
+        </div>
+      </section>
 
-            <p className="mt-6 max-w-2xl text-lg opacity-80">
-              Perspectives on leadership, decision-making, communication strategy,
-              and the realities of growing a business in Aotearoa.
+      {/* Posts */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        {posts.length === 0 ? (
+          <div className="rounded-2xl border border-black/5 bg-white/50 p-8">
+            <h2 className="text-xl font-semibold">No posts yet</h2>
+            <p className="mt-2 text-sm opacity-80">
+              Add markdown files to <code className="font-mono">content/posts</code>.
             </p>
           </div>
-        </Container>
-      </section>
-
-      {/* BLOG POSTS GRID */}
-      <section className="py-20">
-        <Container>
-          <div className="grid gap-6 md:grid-cols-3">
-
-            {/* Example cards — your CMS will replace these */}
-            {[1,2,3].map((i) => (
-              <div key={i} className="rounded-2xl border border-[#8F9B85]/25 bg-white/60 p-6 shadow-sm">
-                <h3 className="text-xl font-semibold">Sample Article {i}</h3>
-                <p className="mt-2 text-sm opacity-70">
-                  This is where your article description will show.
-                </p>
-              </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2">
+            {posts.map((p) => (
+              <PostCard
+                key={p.slug}
+                post={{
+                  slug: p.slug,
+                  meta: p.meta,
+                }}
+              />
             ))}
-
           </div>
-        </Container>
+        )}
       </section>
-
     </main>
   );
 }
