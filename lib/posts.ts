@@ -6,20 +6,23 @@ import html from "remark-html";
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
 
-export type Post = {
+export type PostMeta = {
   slug: string;
   title: string;
   date: string;
   excerpt?: string;
+};
+
+export type Post = PostMeta & {
   contentHtml: string;
 };
 
-export function getAllPosts(): Omit<Post, "contentHtml">[] {
+export function getAllPosts(): PostMeta[] {
   if (!fs.existsSync(postsDirectory)) return [];
 
   const fileNames = fs.readdirSync(postsDirectory);
 
-  const posts = fileNames
+  const posts: PostMeta[] = fileNames
     .filter((name) => name.endsWith(".md"))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, "");
