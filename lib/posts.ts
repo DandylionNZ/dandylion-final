@@ -11,6 +11,7 @@ export type PostMeta = {
   title: string;
   date: string;
   excerpt?: string;
+  category?: string; // ✅ added
 };
 
 export type Post = PostMeta & {
@@ -36,6 +37,7 @@ export function getAllPosts(): PostMeta[] {
         title: String(data.title ?? slug),
         date: String(data.date ?? ""),
         excerpt: data.excerpt ? String(data.excerpt) : "",
+        category: data.category ? String(data.category) : "Insight", // ✅ safe default
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -58,6 +60,7 @@ export function getPostBySlug(slug: string): Post | null {
     title: String(data.title ?? slug),
     date: String(data.date ?? ""),
     excerpt: data.excerpt ? String(data.excerpt) : "",
+    category: data.category ? String(data.category) : "Insight", // ✅ safe default
     contentHtml,
   };
 }

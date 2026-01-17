@@ -1,8 +1,10 @@
 ---
 title: "Welcome to Dandylion Strategy"
-date: "2026-01-17"
-excerpt: "A short note on what this blog is — and the kind of strategy thinking you’ll find here."
+date: "2026-01-01"
+excerpt: "A clear place to start."
+category: "Strategy"
 ---
+
 
 Strategy shouldn’t feel like noise.
 
