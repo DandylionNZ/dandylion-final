@@ -1,79 +1,49 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
-}
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}) {
-  try {
-    const { meta } = await getPostBySlug(params.slug);
-    return {
-      title: `${meta.title} | Dandylion Strategy`,
-      description: meta.excerpt ?? undefined,
-    };
-  } catch {
-    return { title: "Post not found | Dandylion Strategy" };
-  }
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) return {};
+
+  return {
+    title: `${post.meta.title} | Dandylion Marketing`,
+    description: post.meta.excerpt ?? post.meta.description ?? undefined,
+  };
 }
 
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  let post;
-  try {
-    post = await getPostBySlug(params.slug);
-  } catch {
-    notFound();
-  }
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
-  const { meta, contentHtml } = post;
+  if (!post) notFound();
 
   return (
     <main className="bg-[#FAF7F2] text-[#2F2F2C]">
-      {/* BANNER */}
-      <section className="relative overflow-hidden border-b border-[#8F9B85]/25">
-        <div className="absolute inset-0">
-          <Image
-            src={meta.coverImage ?? "/images/blog-post.jpg"}
-            alt={meta.title}
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[#FAF7F2]/72" />
-          <div className="absolute inset-0 bg-[#8F9B85]/10" />
-        </div>
-
-        <div className="relative mx-auto max-w-3xl px-6 py-14 sm:py-16">
-          <p className="mb-4 inline-flex items-center rounded-full border border-[#8F9B85]/35 bg-white/60 px-3 py-1 text-sm text-[#2F2F2C]/80">
-            {meta.category ?? "Insight"} • {meta.date}
-          </p>
-
-          <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            {meta.title}
-          </h1>
-
-          {meta.excerpt ? (
-            <p className="mt-5 text-lg leading-relaxed text-[#2F2F2C]/75">
-              {meta.excerpt}
-            </p>
+      <article className="mx-auto max-w-3xl px-6 py-16">
+        <header className="mb-10">
+          {post.meta.date ? <p className="text-sm text-[#2F2F2C]/60">{post.meta.date}</p> : null}
+          <h1 className="mt-2 text-4xl font-semibold tracking-tight">{post.meta.title}</h1>
+          {post.meta.excerpt ? (
+            <p className="mt-4 text-lg text-[#2F2F2C]/75">{post.meta.excerpt}</p>
           ) : null}
-        </div>
-      </section>
+        </header>
 
-      {/* CONTENT */}
-      <article className="mx-auto max-w-3xl px-6 py-12">
         <div
-          className="prose prose-lg max-w-none prose-headings:tracking-tight prose-a:underline prose-a:decoration-black/20 prose-a:underline-offset-4"
-          dangerouslySetInnerHTML={{ __html: contentHtml }}
+          className="prose prose-neutral max-w-none prose-headings:tracking-tight prose-a:text-[#2F2F2C]"
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
       </article>
     </main>

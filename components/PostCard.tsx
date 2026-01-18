@@ -2,28 +2,34 @@ import Link from "next/link";
 import type { PostListItem } from "@/lib/posts";
 
 export default function PostCard({ post }: { post: PostListItem }) {
+  const { slug, meta } = post;
+
   return (
-    <Link
-      href={`/blog/${post.slug}`}
-      className="group block rounded-2xl border border-[#8F9B85]/25 bg-white/60 p-6 shadow-sm transition hover:bg-white"
-    >
-      <p className="text-sm text-[#2F2F2C]/70">
-        {post.meta.category ?? "Insight"} • {post.meta.date}
-      </p>
+    <article className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+      <div className="flex flex-col gap-2">
+        {meta.date ? <p className="text-sm text-black/60">{meta.date}</p> : null}
 
-      <h3 className="mt-2 text-xl font-semibold tracking-tight">
-        {post.meta.title}
-      </h3>
+        <h2 className="text-xl font-semibold tracking-tight">
+          <Link href={`/blog/${slug}`} className="hover:underline">
+            {meta.title}
+          </Link>
+        </h2>
 
-      {post.meta.excerpt ? (
-        <p className="mt-3 text-sm leading-relaxed text-[#2F2F2C]/75">
-          {post.meta.excerpt}
-        </p>
-      ) : null}
+        {meta.excerpt ? <p className="text-base text-black/75">{meta.excerpt}</p> : null}
 
-      <div className="mt-4 text-sm font-medium underline decoration-black/20 underline-offset-4 group-hover:decoration-black/40">
-        Read →
+        {meta.tags?.length ? (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {meta.tags.map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs text-black/70"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        ) : null}
       </div>
-    </Link>
+    </article>
   );
 }
