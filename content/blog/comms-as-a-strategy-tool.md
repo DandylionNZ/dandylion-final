@@ -1,9 +1,9 @@
 ---
-title: "Comms as a strategy tool"
+title: "Comms as a Strategy Tool"
 date: "2026-01-18"
-category: "Communications strategy"
-excerpt: "How to treat communications as a lever for decision quality and organisational alignment — not just messaging."
-coverImage: "/images/blog-post.jpg"
+excerpt: "Why communications belongs in the strategy toolkit."
+category: "Strategy"
+coverImage: "/images/blog/comms-banner.jpg"
 ---
 
 Communication is often treated as the final step: write the message, publish the update, manage the reaction.

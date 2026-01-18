@@ -1,10 +1,8 @@
----
-title: "Strategy That Survives Contact"
+title: "Comms as a Strategy Tool"
 date: "2026-01-18"
-category: "business"
-excerpt: "How to build strategies that hold up when tested by reality."
-coverImage: "/images/blog-post.jpg"
----
+excerpt: "Strategy that survives contact"
+category: "Strategy"
+coverImage: "/images/blog/comms-banner.jpg"
 
 
 Most strategies fail for one boring reason: they don’t connect to the way work actually happens.
