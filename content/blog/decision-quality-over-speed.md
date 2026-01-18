@@ -6,7 +6,6 @@ category: "Strategy"
 coverImage: "/images/blog/blog-post.jpg"
 ---
 
-
 There’s a quiet pressure in leadership roles to be fast. Quick responses, quick plans, quick confidence.
 
 Speed matters. But in complex environments, **decision quality** matters more.

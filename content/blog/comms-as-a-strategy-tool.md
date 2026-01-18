@@ -1,43 +1,40 @@
 ---
-title: "Comms as a Strategy Tool"
+title: "Decision Quality Over Speed"
 date: "2026-01-18"
-excerpt: "Why communications belongs in the strategy toolkit — not just delivery."
+excerpt: "Speed matters. But in complex environments, decision quality matters more."
 category: "Strategy"
 coverImage: "/images/blog/blog-post.jpg"
 ---
 
+There’s a quiet pressure in leadership roles to be fast. Quick responses, quick plans, quick confidence.
 
-Communication is often treated as the final step: write the message, publish the update, manage the reaction.
+Speed matters. But in complex environments, **decision quality** matters more.
 
-But in complex environments, communication isn’t just delivery — it’s **a strategic tool**.
+I’ve seen organisations move quickly and still lose months — because the decision was made without clarity on what problem was being solved, who needed to be involved, or what “good” looked like. The rework is where the time disappears.
 
-It shapes what people believe is happening, what they expect next, and whether they trust leadership decisions.
+### A simple way to lift decision quality
+When the stakes are high (or the situation is messy), pause long enough to answer three questions:
 
-### Three ways comms becomes strategy
-**1) It reduces uncertainty**  
-In change and disruption, people fill gaps with assumptions.  
-Good communication doesn’t over-explain — it removes ambiguity.
+**1) What are we actually deciding?**  
+Not “what should we do”, but the real decision in plain language.  
+Example: “Are we prioritising cost reduction or service reliability for the next quarter?”
 
-**2) It makes trade-offs legible**  
-Leaders make trade-offs constantly. If you don’t name them, you create confusion and cynicism.  
-A credible message explains the “why”, the constraints, and what you’re prioritising.
+**2) What would make this a good decision six months from now?**  
+Define the success conditions before you choose.  
+Otherwise you’ll judge the decision by emotion or noise.
 
-**3) It protects decision space**  
-When an organisation is under scrutiny, every move becomes reactive.  
-Comms strategy helps you stay deliberate:
-- what you comment on
-- what you don’t
-- what you repeat
-- what you prove with actions
+**3) Who holds information we don’t have?**  
+Not “who should approve this”, but who can reduce uncertainty:
+- customers or frontline staff
+- finance or legal
+- delivery teams
+- external partners
 
-### The shift I care about
-The goal isn’t “better messaging”. The goal is **better outcomes**.
+You don’t need everyone in the room. You need the right inputs before the call.
 
-That means aligning:
-- the decision
-- the narrative
-- the operational reality
+### A note on confidence
+Confidence doesn’t come from certainty — it comes from process.
 
-When those three are out of sync, trust erodes quickly — internally and externally.
+When you can say “we were clear on the decision, we tested assumptions, and we understood the trade-offs”, you can stand behind the outcome even if circumstances change.
 
-Communication strategy is not a layer of polish. It’s part of how good decisions land.
+That’s what good strategy looks like in practice: fewer rushed decisions that create long clean-ups later.
