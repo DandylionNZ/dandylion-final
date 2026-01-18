@@ -65,12 +65,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
       {/* CONTENT */}
       <article className="mx-auto max-w-3xl px-6 py-12">
-        <div
-          className="prose prose-lg max-w-none prose-headings:tracking-tight prose-a:underline prose-a:decoration-black/20 prose-a:underline-offset-4"
-<div dangerouslySetInnerHTML={{ __html: content }} />
-        />
-      </article>
-    </main>
-  );
-}
-
+     <div
+  className="prose prose-lg max-w-none prose-headings:tracking-tight prose-a:underline prose-a:decoration-black/20 prose-a:underline-offset-4"
+  dangerouslySetInnerHTML={{ __html: content }}
+/>
