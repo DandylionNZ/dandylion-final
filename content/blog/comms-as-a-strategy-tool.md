@@ -3,7 +3,7 @@ title: "Comms as a Strategy Tool"
 date: "2026-01-18"
 excerpt: "Why communications belongs in the strategy toolkit."
 category: "Strategy"
-coverImage: "/images/blog/comms-banner.jpg"
+coverImage: "/images/blog/blog-post.jpg"
 ---
 
 Communication is often treated as the final step: write the message, publish the update, manage the reaction.

@@ -3,7 +3,7 @@ title: "Comms as a Strategy Tool"
 date: "2026-01-18"
 excerpt: "Decision quality over speed"
 category: "marketing"
-coverImage: "/images/blog/comms-banner.jpg"
+coverImage: "/images/blog/blog-post.jpg"
 ---
 
 
