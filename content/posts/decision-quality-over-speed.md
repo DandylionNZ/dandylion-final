@@ -1,8 +1,10 @@
 ---
-title: "Decision quality beats decision speed"
-date: "2026-01-18"
-category: "Decision-making"
-description: "A practical way to make better calls under pressure — without slowing everything down."
+---
+title: Decision Quality Over Speed
+excerpt: Why the best decisions are often the ones taken with clarity, not urgency.
+date: 2026-01-18
+---
+
 ---
 
 There’s a quiet pressure in leadership roles to be fast. Quick responses, quick plans, quick confidence.

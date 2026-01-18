@@ -1,9 +1,9 @@
 ---
-title: "Strategy that survives contact with reality"
-date: "2026-01-18"
-category: "Strategy"
-description: "If your strategy can’t be executed, it isn’t strategy — it’s a document."
+title: Strategy That Survives Contact
+excerpt: How to build strategies that hold up when tested by reality.
+date: 2026-01-18
 ---
+
 
 Most strategies fail for one boring reason: they don’t connect to the way work actually happens.
 
