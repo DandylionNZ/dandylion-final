@@ -1,7 +1,9 @@
 ---
-title: Strategy That Survives Contact
-excerpt: How to build strategies that hold up when tested by reality.
-date: 2026-01-18
+title: "Strategy That Survives Contact"
+date: "2026-01-18"
+category: "business"
+excerpt: "How to build strategies that hold up when tested by reality."
+coverImage: "/images/blog-post.jpg"
 ---
 
 

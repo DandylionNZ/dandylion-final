@@ -1,8 +1,9 @@
 ---
-title: "Comms isn’t execution — it’s part of strategy"
+title: "Comms as a strategy tool"
 date: "2026-01-18"
-category: "Communication strategy"
-description: "How communication choices shape outcomes, risk, and credibility — long before a press release exists."
+category: "Communications strategy"
+excerpt: "How to treat communications as a lever for decision quality and organisational alignment — not just messaging."
+coverImage: "/images/blog-post.jpg"
 ---
 
 Communication is often treated as the final step: write the message, publish the update, manage the reaction.

@@ -1,11 +1,15 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { remark } from "remark";
+import html from "remark-html";
 
 export type PostMeta = {
   title: string;
-  excerpt: string;
   date: string;
+  category?: string;
+  excerpt?: string;
+  coverImage?: string; // optional (e.g. "/images/blog-post.jpg")
 };
 
 export type PostListItem = {
@@ -13,60 +17,65 @@ export type PostListItem = {
   meta: PostMeta;
 };
 
+export type Post = {
+  slug: string;
+  meta: PostMeta;
+  contentHtml: string;
+};
+
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
-function getSlugFromFilename(filename: string) {
-  return filename.replace(/\.md$/, "");
+function getMarkdownFilenames() {
+  if (!fs.existsSync(postsDirectory)) return [];
+  return fs
+    .readdirSync(postsDirectory)
+    .filter((f) => f.endsWith(".md"));
 }
 
 export function getAllPosts(): PostListItem[] {
-  if (!fs.existsSync(postsDirectory)) return [];
+  const files = getMarkdownFilenames();
 
-  const filenames = fs
-    .readdirSync(postsDirectory)
-    .filter((f) => f.endsWith(".md"));
-
-  const posts: PostListItem[] = filenames.map((filename) => {
+  const posts = files.map((filename) => {
+    const slug = filename.replace(/\.md$/, "");
     const fullPath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const { data } = matter(fileContents);
 
     const meta: PostMeta = {
-      title: String(data.title ?? "Untitled"),
-      excerpt: String(data.excerpt ?? data.description ?? ""),
-      date: String(data.date ?? new Date().toISOString().slice(0, 10)),
+      title: String(data.title ?? slug),
+      date: String(data.date ?? ""),
+      category: data.category ? String(data.category) : undefined,
+      excerpt: data.excerpt ? String(data.excerpt) : undefined,
+      coverImage: data.coverImage ? String(data.coverImage) : undefined,
     };
 
-    return {
-      slug: getSlugFromFilename(filename),
-      meta,
-    };
+    return { slug, meta };
   });
 
-  // newest first
-  posts.sort(
-    (a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime()
-  );
-
-  return posts;
+  // newest first (expects YYYY-MM-DD)
+  return posts.sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
 }
 
-export function getPostBySlug(slug: string) {
+export async function getPostBySlug(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Post not found: ${slug}`);
+  }
 
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const processed = await remark().use(html).process(content);
+  const contentHtml = processed.toString();
+
   const meta: PostMeta = {
-    title: String(data.title ?? "Untitled"),
-    excerpt: String(data.excerpt ?? data.description ?? ""),
-    date: String(data.date ?? new Date().toISOString().slice(0, 10)),
+    title: String(data.title ?? slug),
+    date: String(data.date ?? ""),
+    category: data.category ? String(data.category) : undefined,
+    excerpt: data.excerpt ? String(data.excerpt) : undefined,
+    coverImage: data.coverImage ? String(data.coverImage) : undefined,
   };
 
-  return {
-    slug,
-    meta,
-    content,
-  };
+  return { slug, meta, contentHtml };
 }

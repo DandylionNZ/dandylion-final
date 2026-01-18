@@ -1,11 +1,11 @@
 ---
----
-title: Decision Quality Over Speed
-excerpt: Why the best decisions are often the ones taken with clarity, not urgency.
-date: 2026-01-18
+title: "Decision Quality Over Speed"
+date: "2026-01-10"
+category: "decision making"
+excerpt: "Why the best decisions are often the ones taken with clarity, not urgency."
+coverImage: "/images/blog-post.jpg"
 ---
 
----
 
 There’s a quiet pressure in leadership roles to be fast. Quick responses, quick plans, quick confidence.
 

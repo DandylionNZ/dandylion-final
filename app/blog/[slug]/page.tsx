@@ -12,10 +12,10 @@ export async function generateMetadata({
   params: { slug: string };
 }) {
   try {
-    const { meta } = getPostBySlug(params.slug);
+    const { meta } = await getPostBySlug(params.slug);
     return {
       title: `${meta.title} | Dandylion Strategy`,
-      description: meta.excerpt,
+      description: meta.excerpt ?? undefined,
     };
   } catch {
     return { title: "Post not found | Dandylion Strategy" };
@@ -29,20 +29,20 @@ export default async function BlogPostPage({
 }) {
   let post;
   try {
-    post = getPostBySlug(params.slug);
+    post = await getPostBySlug(params.slug);
   } catch {
     notFound();
   }
 
-  const { meta, content } = post;
+  const { meta, contentHtml } = post;
 
   return (
-    <main className="bg-[#FAF7F2] text-[#3B3B3B]">
+    <main className="bg-[#FAF7F2] text-[#2F2F2C]">
       {/* BANNER */}
       <section className="relative overflow-hidden border-b border-[#8F9B85]/25">
         <div className="absolute inset-0">
           <Image
-            src="/images/blog-post.jpg"
+            src={meta.coverImage ?? "/images/blog-post.jpg"}
             alt={meta.title}
             fill
             priority
@@ -54,7 +54,7 @@ export default async function BlogPostPage({
 
         <div className="relative mx-auto max-w-3xl px-6 py-14 sm:py-16">
           <p className="mb-4 inline-flex items-center rounded-full border border-[#8F9B85]/35 bg-white/60 px-3 py-1 text-sm text-[#2F2F2C]/80">
-            Insight • {meta.date}
+            {meta.category ?? "Insight"} • {meta.date}
           </p>
 
           <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
@@ -73,7 +73,7 @@ export default async function BlogPostPage({
       <article className="mx-auto max-w-3xl px-6 py-12">
         <div
           className="prose prose-lg max-w-none prose-headings:tracking-tight prose-a:underline prose-a:decoration-black/20 prose-a:underline-offset-4"
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </article>
     </main>
