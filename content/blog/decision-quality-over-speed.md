@@ -1,8 +1,8 @@
 ---
-title: "Comms as a Strategy Tool"
+title: "Decision Quality Over Speed"
 date: "2026-01-18"
-excerpt: "Decision quality over speed"
-category: "marketing"
+excerpt: "Speed matters. But in complex environments, decision quality matters more."
+category: "Strategy"
 coverImage: "/images/blog/blog-post.jpg"
 ---
 

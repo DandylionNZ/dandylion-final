@@ -1,8 +1,10 @@
-title: "Comms as a Strategy Tool"
+---
+title: "Strategy That Survives Contact"
 date: "2026-01-18"
-excerpt: "Strategy that survives contact"
+excerpt: "A strategy only works if it connects to how work actually happens."
 category: "Strategy"
 coverImage: "/images/blog/blog-post.jpg"
+---
 
 
 Most strategies fail for one boring reason: they don’t connect to the way work actually happens.
